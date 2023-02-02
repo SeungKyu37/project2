@@ -29,6 +29,7 @@ if selected3 == "🏠Home":
 
     # 실거래 현황
     st.subheader('실거래 현황 (최신순)')
+    st.write('기간 : 2022.01.01~ 2023.01.30 (계약일 기준)')
     data['FLR_NO'] = data['FLR_NO'].astype(str) + '층'
     cols = ['BOBN', 'BUBN']
     data['번지'] = data[cols].apply(lambda row: '-'.join(row.values.astype(str))
