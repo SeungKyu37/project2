@@ -41,6 +41,8 @@ def run_search():
                                                     options=np.arange(min(rent_gtn_list), max(rent_gtn_list)+1), 
                                                     value=(min_gtn, max_gtn), 
                                                     label_visibility="collapsed")
+        min_gtn = rent_gtn_select[0]
+        max_gtn = rent_gtn_select[1]
     except:
         st.sidebar.error("범위 안 숫자를 입력하시오.")
 

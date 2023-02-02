@@ -26,6 +26,10 @@ selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 
 if selected3 == "🏠Home":
     data = pd.read_csv('data/bds_data.csv', encoding='cp949')
     data2 = data.copy()
+    po = data2['SGG_NM'] == '영등포구'
+    tel = data2['HOUSE_GBN_NM'] == '아파트'
+    st.write(data2[po & tel]['BOBN'].count())
+
 
     # 실거래 현황
     st.subheader('실거래 현황 (최신순)')
