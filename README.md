@@ -1,5 +1,6 @@
 # 내 방 어디? v1(~2023.02.01)
-[링크](https://seungkyu37-project2-app-3b4qng.streamlit.app/)
+[내 방 어디? 링크](https://seungkyu37-project2-app-3b4qng.streamlit.app/)
+![screensh](img/홈페이지.png)
 
 ## 무엇인가?
 계약일 기준 2022년 1월 1일 ~ 2023년 1월 30일까지의 서울시 전/월세 실거래 데이터 기반 검색 및 전세 시세 예측 웹 개발
