@@ -1,4 +1,4 @@
-# 내 방 어디 v1(~2023.02.01)
+# 내 방 어디? v1(~2023.02.01)
 [링크](https://seungkyu37-project2-app-3b4qng.streamlit.app/)
 
 ## 무엇인가?

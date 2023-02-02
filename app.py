@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 import pandas as pd
 import math
 
-st.title('내방 어디?')
+st.title('내 방 어디?')
 
 from search import run_search
 from predict import run_predict

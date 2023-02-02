@@ -20,23 +20,67 @@ def run_search():
 
     # 전세 / 월세 선택
     rent_type = data['RENT_GBN'].unique()
+    rent_type = np.append(rent_type, '모두')
     type_select = st.sidebar.selectbox('전세/월세', rent_type)
     
     # 보증금 선택 슬라이더
+    st.sidebar.write("보증금(만단위)")
     rent_gtn_list = data['RENT_GTN'].values.tolist()
-    rent_gtn_select = st.sidebar.select_slider('보증금(만단위)', 
-                                                options=np.arange(min(rent_gtn_list), max(rent_gtn_list)+1), 
-                                                value=(min(rent_gtn_list), max(rent_gtn_list)))
+    col_gtn1, col_gtn2, col_gtn3 = st.sidebar.columns(3)
+    with col_gtn1:
+        min_gtn = int(st.text_input("최소", value=0, label_visibility="collapsed"))
+    with col_gtn2:
+        pass
+    with col_gtn3:
+        max_gtn = int(st.text_input("최대", value=1100000, label_visibility="collapsed"))
+    if min_gtn > max_gtn:
+        st.sidebar.error("최대가 최소보다 크거나 같게 설정하시오.")
+    try:
+        rent_gtn_select = st.sidebar.select_slider('보증금(만단위)', 
+                                                    options=np.arange(min(rent_gtn_list), max(rent_gtn_list)+1), 
+                                                    value=(min_gtn, max_gtn), 
+                                                    label_visibility="collapsed")
+    except:
+        st.sidebar.error("범위 안 숫자를 입력하시오.")
 
+    # # 월세 선택 슬라이더
+    # rent_fee_list = data['RENT_FEE'].values.tolist()
+    # rent_fee_select = st.sidebar.select_slider('월세(만단위)',
+    #                                             options = np.arange(0, max(rent_fee_list)+1),
+    #                                             value = (0, max(rent_fee_list))
+    #                                             )
+    
     # 월세 선택 슬라이더
+    st.sidebar.write("월세(만단위)")
     rent_fee_list = data['RENT_FEE'].values.tolist()
-    rent_fee_select = st.sidebar.select_slider('월세(만단위)',
-                                                options = np.arange(0, max(rent_fee_list)+1),
-                                                value = (0, max(rent_fee_list))
-                                                )
+    col_fee1, col_fee2, col_fee3 = st.sidebar.columns(3)
+    with col_fee1:
+        min_fee = int(st.text_input("최소월세", value=0, label_visibility="collapsed"))
+    with col_fee2:
+        pass
+    with col_fee3:
+        max_fee = int(st.text_input("최대월세", value=4000, label_visibility="collapsed"))
+    if min_fee > max_fee:
+        st.sidebar.error("최대가 최소보다 크거나 같게 설정하시오.")
+    try:
+        rent_fee_select = st.sidebar.select_slider('월세(만단위)',
+                                                    options=np.arange(0, max(rent_fee_list)+1),
+                                                    value=(min_fee, max_fee), label_visibility="collapsed")
+    except:
+        st.sidebar.error("범위 안 숫자를 입력하시오.")
     
     # 면적(평)
+    st.sidebar.write("임대면적(평)")
     rent_area_list = data['RENT_AREA'].values.tolist()
+    col_area1, col_area2, col_area3 = st.sidebar.columns(3)
+    with col_area1:
+        min_area = int(st.text_input("최소 면적", value=1, label_visibility="collapsed"))
+    with col_area2:
+        pass
+    with col_area3:
+        max_area = int(st.text_input("최대 면적", value=97, label_visibility="collapsed"))
+    if min_area > max_area:
+        st.sidebar.error("최대가 최소보다 크거나 같게 설정하시오.")
     min_rent_area = min(rent_area_list)
     max_rent_area = max(rent_area_list)
 
@@ -45,16 +89,23 @@ def run_search():
     max_pyeong = math.ceil(max_rent_area / 3.3058)
 
     # 면적 선택 슬라이더
-    rent_area_select = st.sidebar.select_slider('면적(평)',
-                                                options = np.arange(min_pyeong, max_pyeong+1),
-                                                value = (min_pyeong, max_pyeong)
-                                                )
+    try:
+        rent_area_select = st.sidebar.select_slider('면적(평)',
+                                                    options = np.arange(min_pyeong, max_pyeong+1),
+                                                    value = (min_area, max_area), 
+                                                    label_visibility="collapsed"
+                                                    )
+    except:
+        st.sidebar.error("범위 안 숫자를 입력하시오.")
 
     # 버튼
     if st.sidebar.button('조회'):
         gu_search = (data['SGG_NM'] == gu_select)
         dong_search = (data['BJDONG_NM'] == dong_select)
-        type_search = (data['RENT_GBN'] == type_select)
+        if '모두' in type_select:
+            pass
+        else:
+            type_search = (data['RENT_GBN'] == type_select)
         rent_gtn_search = (data['RENT_GTN'] >= rent_gtn_select[0]) & (data['RENT_GTN'] <= rent_gtn_select[1])
         rent_fee_search = (data['RENT_FEE'] >= rent_fee_select[0]) & (data['RENT_FEE'] <= rent_fee_select[1])
         # 면적 최솟값, 최댓값 평 -> 제곱미터 변환
@@ -63,8 +114,10 @@ def run_search():
         rent_area_search = (data['RENT_AREA'] >= rent_area_min) & (data['RENT_AREA'] <= rent_area_max)
 
         # data_search에 검색한 값들만 데이터 추출
-        data_search = data[gu_search & dong_search & type_search & rent_gtn_search & rent_fee_search & rent_area_search]
-
+        try:
+            data_search = data[gu_search & dong_search & type_search & rent_gtn_search & rent_fee_search & rent_area_search]
+        except:
+            data_search = data[gu_search & dong_search & rent_gtn_search & rent_fee_search & rent_area_search]
         # 층 칼럼 접미사로 '층' 추가
         data_search['FLR_NO'] = data_search['FLR_NO'].astype(str) + '층'
 
