@@ -2,7 +2,7 @@
 [내 방 어디? 링크](https://seungkyu37-project2-app-3b4qng.streamlit.app/)
 ![screensh](img/홈페이지.png)
 
-## 무엇인가?
+## 목적
 계약일 기준 2022년 1월 1일 ~ 2023년 1월 30일까지의 서울시 전/월세 실거래 데이터 기반 검색 및 전세 시세 예측 웹 개발
 
 ## 주요 기능
@@ -21,6 +21,13 @@
 
 ## 설치 방법
 ### Windows
++ 버전 확인 
+    - python : 3.9.13
+    - vscode : 1.74.1
+    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2)
+
++ 주요 라이브러리 설치
+    - `pip install numpy, pandas, plotly, matplotlib, streamlit, streamlit-option-menu`
 
 # 내방 어디? v2(2023.02.02~)
 
