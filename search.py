@@ -6,7 +6,8 @@ import numpy as np
 import math
 
 def run_search():
-    st.title('전월세 검색')
+    st.subheader('전월세 검색 결과')
+    st.write('기간 : 2022.01.01~ 2023.01.30 (계약일 기준)')
     data = pd.read_csv('data/bds_data.csv', encoding='cp949')
 
     gu = data['SGG_NM'].unique()
