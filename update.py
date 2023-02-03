@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import streamlit as st
+import numpy as np
 
 service_key = '4d42486779706d3034365957634870'
 data = []
@@ -12,7 +13,6 @@ for j in range(1,2):
     content = req.json()
     con = content['tbLnOpendataRentV']['row']
 
-  
     for h in con:
         dic = {}
         dic['SGG_CD'] = h['SGG_CD']
@@ -34,5 +34,10 @@ for j in range(1,2):
   # ===
 # --
 df = pd.DataFrame(data)
+df['BOBN'].replace('', np.nan, inplace=True)
+df['BUBN'].replace('', np.nan, inplace=True)
+df['BLDG_NM'].replace('', np.nan, inplace=True)
+df['BUILD_YEAR'].replace('', np.nan, inplace=True)
+df = df.dropna()
 st.write(df)
 # df.to_csv('data.csv',encoding='euc-kr', index=False)
