@@ -34,6 +34,5 @@ for j in range(1,2):
   # ===
 # --
 df = pd.DataFrame(data)
-df = df.apply
 st.write(df)
 # df.to_csv('data.csv',encoding='euc-kr', index=False)

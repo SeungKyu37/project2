@@ -25,15 +25,17 @@
 + 버전 확인 
     - vscode : 1.74.1
     - python : 3.9.13
-    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2)
+    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2)
 
 + 주요 라이브러리 설치
-    - `pip install numpy, pandas, plotly, matplotlib, streamlit, streamlit-option-menu`
+    - `pip install numpy, pandas, plotly, matplotlib, streamlit, streamlit-option-menu, geopandas`
 
 # 내방 어디? v2(2023.02.02~)
 
 ## 주요 기능 업데이트 내용
 - 홈페이지
+    - 전세 월평균, 월세 월평균 추이 꺾은선그래프 시각화
+    - 월세, 전세 실거래 수 지역 순위 막대그래프 시각화
     
 - 전월세 검색페이지
     - 전/월세 구분 검색 중 모두 검색할 수 있도록 추가
@@ -41,6 +43,7 @@
     - 보증금, 월세, 임대면적 최소/최대값과 슬라이더값 동기화
 
 - 전세 예측페이지
+    - 날짜 선택 후 지역구별 평균 실거래가 지도 시각화
 
 - 건의사항페이지
     - 처리 상태 추가
