@@ -1,10 +1,11 @@
 import requests
 import pandas as pd
+import streamlit as st
 
 service_key = '4d42486779706d3034365957634870'
 data = []
 
-for j in range(1,5):
+for j in range(1,2):
     url = f'http://openapi.seoul.go.kr:8088/{service_key}/json/tbLnOpendataRentV/{1+((j-1)*1000)}/{j*1000}'
     print(url)
     req = requests.get(url)
@@ -33,4 +34,6 @@ for j in range(1,5):
   # ===
 # --
 df = pd.DataFrame(data)
-df.to_csv('data.csv',encoding='euc-kr', index=False)
+df = df.apply
+st.write(df)
+# df.to_csv('data.csv',encoding='euc-kr', index=False)
