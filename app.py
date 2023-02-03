@@ -37,7 +37,6 @@ if selected3 == "🏠Home":
     - *현재까지의 서울시 집에 대한 실거래가 현황입니다!*
     - 기간 : 2022.01.01~ 2023.01.30 (계약일 기준)
     """)
-    st.write('기간 : 2022.01.01~ 2023.01.30 (계약일 기준)')
     data['FLR_NO'] = data['FLR_NO'].astype(str) + '층'
     cols = ['BOBN', 'BUBN']
     data['번지'] = data[cols].apply(lambda row: '-'.join(row.values.astype(str))
