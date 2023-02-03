@@ -6,7 +6,7 @@ import pandas as pd
 import math
 import numpy as np
 
-st.title('내 방 어디?')
+st.title(':house_buildings:내 방, 어디:eyes:?')
 
 from search import run_search
 from predict import run_predict
@@ -31,9 +31,12 @@ if selected3 == "🏠Home":
     # tel = data2['HOUSE_GBN_NM'] == '아파트'
     # st.write(data2[po & tel]['BOBN'].count())
 
-    
     # 실거래 현황
-    st.subheader('실거래 현황 (최신순)')
+    st.markdown("""
+    ## :crown:실거래 현황
+    - *현재까지의 서울시 집에 대한 실거래가 현황입니다!*
+    - 기간 : 2022.01.01~ 2023.01.30 (계약일 기준)
+    """)
     st.write('기간 : 2022.01.01~ 2023.01.30 (계약일 기준)')
     data['FLR_NO'] = data['FLR_NO'].astype(str) + '층'
     cols = ['BOBN', 'BUBN']
@@ -57,7 +60,10 @@ if selected3 == "🏠Home":
     col1, col2 = st.columns(2)
     # 월세 실거래 수 지역 순위
     with col1:
-        st.subheader('월세 실거래 수 지역 순위')
+        st.subheader("""
+        :dollar:월세 실거래수 지역 순위
+        - *현재 월세 실거래수 TOP 10*:first_place_medal:
+        """)
         # 월세인 데이터 추출
         data_m = data2[data2['RENT_GBN']=='월세']
         # 구, 동 합치기
@@ -72,7 +78,10 @@ if selected3 == "🏠Home":
 
     # 전세 실거래 수 지역 순위(월세와 같은 방식)
     with col2:
-        st.subheader('전세 실거래 수 지역 순위')
+        st.subheader("""
+        :credit_card:전세 실거래수 지역 순위
+        - *현재 전세 실거래수 TOP10*:trophy:
+        """)
         data_m = data2[data2['RENT_GBN']=='전세']
         cols = ['SGG_NM', 'BJDONG_NM']
         data_m['주소'] = data_m[cols].apply(lambda row:' '.join(row.values.astype(str)),axis=1)

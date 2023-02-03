@@ -7,7 +7,7 @@ matplotlib.use('Agg')
 import plotly.graph_objects as go
 
 def run_predict():
-    st.title('전세 예측')
+    st.title('전세 예측:chart_with_upwards_trend:')
     df = pd.read_csv('data/bds_data.csv', encoding='cp949')
     
     a = np.array(df['SGG_NM'].unique())
