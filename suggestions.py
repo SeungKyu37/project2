@@ -9,7 +9,7 @@ cur = conn.cursor()
 
 # 테이블 생성
 def create_tb():
-    cur.execute('CREATE TABLE IF NOT EXISTS suggestion(author CHAR, email VARCHAR, title TEXT, comment MEDIUMTEXT, date TEXT, status TEXT)' )
+    cur.execute('CREATE TABLE IF NOT EXISTS suggestion(author CHAR, email VARCHAR, title TEXT, comment TEXT, date TEXT, status TEXT)' )
     conn.commit()
 
 # db 입력
@@ -57,6 +57,11 @@ def recover_status(email):
     cur.execute('UPDATE suggestion SET status = "접수" WHERE email="{}"'.format(email))
     conn.commit()
 
+def delete_post(email):
+    cur.execute('DELETE FROM suggestion WHERE email = "{}"'.format(email))
+    conn.commit()
+     # conn.close()
+
 
 # ▲ DB 관련
 # -------------------------------------------------------------------------------------------------
@@ -84,32 +89,41 @@ def run_suggestions():
             status = "접수"
             if submit:
                 
-                # 내용란에 아래 글 입력, 이메일에 처리된 이메일 입력시 "처리완료" 혹은 "접수"로 변경함
-                if comment == "ok_myroomadmin":
-                    update_status(email)
 
-                elif comment == "no_myroomadmin":
-                    recover_status(email)
+                # if comment == "ok_myroomadmin":
+                #     update_status(email)
 
-                else :
+                # elif comment == "no_myroomadmin":
+                #     recover_status(email)
+
+                # 문의사항 접수
+                # else :
                     add_data(author, email, title, comment, date, status)
                     st.success("문의하신 내용이 접수되었습니다! 답변은 작성해주신 이메일로 발송됩니다. 감사합니다.")
-                    st.balloons()
+                    st.snow()
 
      # 검색
     with st.expander("검색"):
-        cols = st.columns((1,1,1))
-        search_term = cols[0].text_input('검색')
-        search_option = cols[1].selectbox("검색옵션",("내용","작성자명","제목"))
-        if cols[2].button("검색"):
-                if search_option == "내용":
+        cols = st.columns((1,1))
+        search_term = cols[0].text_input(' ')
+        search_option = cols[1].selectbox(" ",("--검색옵션--","내용","작성자명","제목"))
+        if st.button("검색"):
+                if search_term == "":
+                    st.warning("검색어를 입력하세요")
+                elif search_option == "내용":
                     result=get_by_comment(search_term)
+                    s_result = pd.DataFrame(result, columns=['작성자명', '제목', '내용', '작성시각', '상태'])
+                    st.dataframe(s_result, use_container_width=True)
                 elif search_option =="작성자명":
                     result=get_by_author(search_term)
+                    s_result = pd.DataFrame(result, columns=['작성자명', '제목', '내용', '작성시각', '상태'])
+                    st.dataframe(s_result, use_container_width=True)
                 elif search_option =="제목":
                     result=get_by_title(search_term)
-                s_result = pd.DataFrame(result, columns=['작성자명', '제목', '내용', '작성시각', '상태'])
-                st.dataframe(s_result, use_container_width=True)
+                    s_result = pd.DataFrame(result, columns=['작성자명', '제목', '내용', '작성시각', '상태'])
+                    st.dataframe(s_result, use_container_width=True)
+                else :
+                    st.warning("검색옵션을 입력하세요")
 
 
     # 목록
@@ -121,3 +135,22 @@ def run_suggestions():
         # st.dataframe(df.style.set_properties(subset=['내용'], **{'width': '1000px'}))
         st.dataframe(df, use_container_width=True)
         # st.table(df)
+
+
+    # 관리자 기능
+    admin_option = st.checkbox("관리자 메뉴")
+    if admin_option:
+        cols = st.columns((1,1))
+        command = cols[0].text_input("command")
+        email = cols[1].text_input("email")
+        if st.button ("확인"):
+            if command == "ok_myroomadmin":
+                update_status(email)
+            elif command == "no_myroomadmin":
+                recover_status(email)
+            elif command == "del_myroomadmin":
+                st.checkbox("삭제하시겠습니까? 작성하신 이메일을 다시 확인해주세요.")
+                # del_reason = st.text_input("삭제사유")
+                delete_post(email)
+            else :
+                st.warning("잘못된 명령입니다")
