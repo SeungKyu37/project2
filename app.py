@@ -4,6 +4,7 @@ import streamlit as st
 from streamlit_option_menu import option_menu
 import pandas as pd
 import math
+import numpy as np
 
 st.title('내 방 어디?')
 
@@ -26,11 +27,11 @@ selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 
 if selected3 == "🏠Home":
     data = pd.read_csv('data/bds_data.csv', encoding='cp949')
     data2 = data.copy()
-    po = data2['SGG_NM'] == '영등포구'
-    tel = data2['HOUSE_GBN_NM'] == '아파트'
-    st.write(data2[po & tel]['BOBN'].count())
+    # po = data2['SGG_NM'] == '영등포구'
+    # tel = data2['HOUSE_GBN_NM'] == '아파트'
+    # st.write(data2[po & tel]['BOBN'].count())
 
-
+    
     # 실거래 현황
     st.subheader('실거래 현황 (최신순)')
     st.write('기간 : 2022.01.01~ 2023.01.30 (계약일 기준)')
