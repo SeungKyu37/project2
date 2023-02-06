@@ -44,4 +44,8 @@ def run_predict():
     center = {"lat": 37.575651, "lon": 126.97689}, opacity=0.6)
     fig.update_geos(fitbounds="locations", visible=True)
     #fig.show()
-    st.plotly_chart(fig)
+    if  merged["RENT_GTN"].values > 0:
+        st.plotly_chart(fig)
+    else:
+        st.markdown('# 금일 거래는 없습니다.')
+        st.plotly_chart(fig)
