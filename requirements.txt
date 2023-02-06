@@ -5,7 +5,7 @@ streamlit
 plotly
 tensorflow==2.9.0
 streamlit_option_menu 
-google-cloud-bigquery
+# google-cloud-bigquery
 joblib
 scikit-learn
 pandas-gbq
