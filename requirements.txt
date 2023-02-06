@@ -3,9 +3,9 @@ pandas
 matplotlib
 streamlit
 plotly
-google-cloud-bigquery
-tensorflow==2.8.0
+tensorflow==2.9.0
 streamlit_option_menu 
+google-cloud-bigquery
 joblib
 scikit-learn
 pandas-gbq

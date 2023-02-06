@@ -7,6 +7,7 @@ matplotlib.use('Agg')
 import plotly.graph_objects as go
 import geopandas as gp
 import json
+
 def run_predict():
     st.title('전세 예측')
     df = pd.read_csv('data/bds_data.csv', encoding='cp949')
