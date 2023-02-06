@@ -3,7 +3,7 @@ pandas
 matplotlib
 streamlit
 plotly
-# google-cloud-bigquery
+google-cloud-bigquery
 tensorflow==2.8.0
 streamlit_option_menu 
 joblib
