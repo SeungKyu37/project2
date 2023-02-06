@@ -4,8 +4,7 @@ matplotlib
 streamlit
 plotly
 tensorflow==2.9.0
-streamlit_option_menu 
-google-cloud-bigquery
+streamlit_option_menu
 geopandas==0.12.2
 joblib
 scikit-learn
