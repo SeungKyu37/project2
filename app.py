@@ -7,6 +7,10 @@ st.write(tf.__version__)
 from google.oauth2 import service_account
 from google.cloud import bigquery
 import pandas as pd 
+import yfinance as yf
+data = yf.download("AAPL", start="2019-08-01", end="2020-08-01")
+ts=data['Open']
+st.write(ts.head())
 
 st.write(pd.__version__)
 st.write("Done?")
