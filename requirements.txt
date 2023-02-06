@@ -6,9 +6,9 @@ plotly
 tensorflow==2.9.0
 streamlit_option_menu 
 google-cloud-bigquery
+geopandas==0.12.2
 joblib
 scikit-learn
 pandas-gbq
 pydeck
 yfinance
-geopandas
