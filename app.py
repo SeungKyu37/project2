@@ -10,7 +10,7 @@ import pandas as pd
 import yfinance as yf
 data = yf.download("AAPL", start="2019-08-01", end="2020-08-01")
 ts=data['Open']
-st.write(ts.head())
+st.write(ts.head().reset_index())
 
 st.write(pd.__version__)
 st.write("Done?")
