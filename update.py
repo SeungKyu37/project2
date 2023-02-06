@@ -2,6 +2,8 @@ import requests
 import pandas as pd
 import streamlit as st
 import numpy as np
+from google.oauth2 import service_account
+from google.cloud import bigquery
 
 service_key = '4d42486779706d3034365957634870'
 data = []
@@ -31,13 +33,17 @@ for j in range(1,2):
         dic['BUILD_YEAR'] = h['BUILD_YEAR']
         dic['HOUSE_GBN_NM'] = h['HOUSE_GBN_NM']
         data.append(dic)
-  # ===
+#   ===
 # --
 df = pd.DataFrame(data)
 df['BOBN'].replace('', np.nan, inplace=True)
 df['BUBN'].replace('', np.nan, inplace=True)
 df['BLDG_NM'].replace('', np.nan, inplace=True)
 df['BUILD_YEAR'].replace('', np.nan, inplace=True)
+df['CNTRCT_DE'] = df['CNTRCT_DE'].astype('str')
+df['CNTRCT_DE'] = df['CNTRCT_DE'].apply(lambda x: pd.to_datetime(str(x), format="%Y/%m/%d"))
+df['CNTRCT_DE'] = df['CNTRCT_DE'].astype('str')
+df['CNTRCT_DE'].replace('T00:00:00', '', inplace=True)
 df = df.dropna()
 st.write(df)
 # df.to_csv('data.csv',encoding='euc-kr', index=False)

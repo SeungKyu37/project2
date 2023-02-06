@@ -25,7 +25,7 @@
 + 버전 확인 
     - vscode : 1.74.1
     - python : 3.9.13
-    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2)
+    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2), bigquery, pandas-gbq, pycoingecko
 
 + 주요 라이브러리 설치
     - `pip install numpy, pandas, plotly, matplotlib, streamlit, streamlit-option-menu, geopandas`
