@@ -173,6 +173,3 @@ poetry.toml
 # End of https://www.toptal.com/developers/gitignore/api/python
 
 .streamlit/secrets.toml
-
-update.py
-streamlit_app.py

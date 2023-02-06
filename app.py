@@ -7,6 +7,12 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import math
+import tensorflow as tf
+import yfinance as yf
+
+st.write("tf", tf.__version__)
+st.write("yf", yf.__version__)
+
 
 st.title(':house_buildings:내 방, 어디:eyes:?')
 
