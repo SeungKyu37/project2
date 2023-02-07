@@ -213,9 +213,11 @@ from datetime import datetime
 # df0 = df0.drop(0, axis=0)
 # st.write(df0)
 
+# DB 접속
 dbConn=sqlite3.connect("data/mydata.db")
 cs=dbConn.cursor()
 
+# API로 데이터 받아오기
 service_key = '4d42486779706d3034365957634870'
 data = []
 
@@ -244,8 +246,8 @@ for j in range(1,2):
         dic['BUILD_YEAR'] = h['BUILD_YEAR']
         dic['HOUSE_GBN_NM'] = h['HOUSE_GBN_NM']
         data.append(dic)
-# #   ===
-# # --
+
+# 데이터 전처리
 df = pd.DataFrame(data)
 df['BOBN'].replace('', np.nan, inplace=True)
 df['BUBN'].replace('', np.nan, inplace=True)
@@ -261,22 +263,25 @@ df['BUBN'] = df['BUBN'].astype('int').astype('str')
 df['FLR_NO'] = df['FLR_NO'].astype('int').astype('str')
 df['RENT_AREA'] = df['RENT_AREA'].astype('str') 
 
+# 데이터 DB 저장
 for row in df.itertuples():
     strSQL="INSERT INTO budongsan2(SGG_CD,SGG_NM,BJDONG_CD,BJDONG_NM,BOBN,BUBN,FLR_NO,CNTRCT_DE,RENT_GBN,RENT_AREA,RENT_GTN,RENT_FEE,BLDG_NM,BUILD_YEAR,HOUSE_GBN_NM)values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
     cs.execute(strSQL,(row[1],row[2],row[3],row[4],row[5],row[6],row[7],row[8],row[9],row[10],row[11],row[12],row[13],row[14],row[15]))
 
+# 중복 데이터 제거
 cs.execute('DELETE FROM budongsan2 WHERE rowid not in (select min(rowid) from budongsan2 group by SGG_CD,SGG_NM,BJDONG_CD,BJDONG_NM,BOBN,BUBN,FLR_NO,CNTRCT_DE,RENT_GBN,RENT_AREA,RENT_GTN,RENT_FEE,BLDG_NM,BUILD_YEAR,HOUSE_GBN_NM)')
 dbConn.commit()
 
+# 부동산 테이블 조회
 def db_list():
     cs.execute('SELECT * FROM budongsan2 ORDER BY 8 desc')
-    sugg = cs.fetchall()
-    return sugg
+    bds = cs.fetchall()
+    return bds
 
+# 부동산 테이블 데이터프레임화
 list = db_list()     
-df0 = pd.DataFrame(list, columns=['SGG_CD','SGG_NM','BJDONG_CD','BJDONG_NM','BOBN','BUBN','FLR_NO','CNTRCT_DE','RENT_GBN','RENT_AREA','RENT_GTN','RENT_FEE','BLDG_NM','BUILD_YEAR','HOUSE_GBN_NM'])     
-df0 = df0.drop(0, axis=0)
-st.write(df0)
+df_bds = pd.DataFrame(list, columns=['SGG_CD','SGG_NM','BJDONG_CD','BJDONG_NM','BOBN','BUBN','FLR_NO','CNTRCT_DE','RENT_GBN','RENT_AREA','RENT_GTN','RENT_FEE','BLDG_NM','BUILD_YEAR','HOUSE_GBN_NM'])     
+df_bds = df_bds.drop(0, axis=0)
 
 cs.close()
 dbConn.close()
