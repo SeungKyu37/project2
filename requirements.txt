@@ -13,3 +13,4 @@ pydeck
 yfinance
 stqdm
 prophet
+seaborn
