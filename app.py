@@ -51,6 +51,7 @@ if selected3 == "🏠Home":
     """)
     st.subheader('실거래 현황 (최신순)')
     st.write("기간 : " + f'{before_month}' + " ~ " +f'{before_day}' + " (계약일 기준)")
+    st.write("오전 10시 5분 데이터 갱신")
     data = data[data['CNTRCT_DE']>=f'{before_month}']
 
     data['FLR_NO'] = data['FLR_NO'].astype(str) + '층'
