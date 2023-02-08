@@ -37,11 +37,11 @@ if selected3 == "🏠Home":
 
     data2 = data.copy()
 
-    now = datetime.now()
-    before_day = now - relativedelta(days=1)
-    before_month = before_day - relativedelta(months=1)
-    before_day = before_day.strftime("%Y-%m-%d")
-    before_month = before_month.strftime("%Y-%m-%d")
+    # now = datetime.now()
+    # before_day = now - relativedelta(days=1)
+    # before_month = before_day - relativedelta(months=1)
+    # before_day = before_day.strftime("%Y-%m-%d")
+    # before_month = before_month.strftime("%Y-%m-%d")
 
     # 실거래 현황
     st.markdown("""
@@ -50,9 +50,11 @@ if selected3 == "🏠Home":
 
     """)
     st.subheader('실거래 현황 (최신순)')
-    st.write("기간 : " + f'{before_month}' + " ~ " +f'{before_day}' + " (계약일 기준)")
+    # st.write("기간 : " + f'{before_month}' + " ~ " +f'{before_day}' + " (계약일 기준)")
     st.write("매일 오전 10시 5분 데이터 갱신")
-    data = data[data['CNTRCT_DE']>=f'{before_month}']
+    latest = data.loc[1,['CNTRCT_DE']].values[0]
+    st.write("기간 : 2022.01.01 ~ " +f'{latest}' + " (계약일 기준)")
+    # data = data[data['CNTRCT_DE']>=f'{before_month}']
 
     data['FLR_NO'] = data['FLR_NO'].astype(str) + '층'
     cols = ['BOBN', 'BUBN']
