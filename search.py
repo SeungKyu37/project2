@@ -4,7 +4,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import math
-from update import run_update
 from update import update_data
 
 def run_search():

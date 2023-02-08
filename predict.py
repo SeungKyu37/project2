@@ -21,7 +21,6 @@ import warnings
 warnings.filterwarnings("ignore")
 # from stqdm_model import stqdm_model
 from ml2 import prediction2
-from update import run_update
 from update import update_data
 
 def run_predict():

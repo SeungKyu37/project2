@@ -7,6 +7,7 @@ import sqlite3
 import time
 from datetime import datetime
 
+## DB 생성 코드
 # DB 접속
 # dbConn=sqlite3.connect("data/mydata.db")
 # cs=dbConn.cursor()
@@ -151,6 +152,16 @@ def run_update():
     cs.execute('DELETE FROM budongsan2 WHERE rowid not in (select min(rowid) from budongsan2 group by SGG_CD,SGG_NM,BJDONG_CD,BJDONG_NM,BOBN,BUBN,FLR_NO,CNTRCT_DE,RENT_GBN,RENT_AREA,RENT_GTN,RENT_FEE,BLDG_NM,BUILD_YEAR,HOUSE_GBN_NM)')
     dbConn.commit()
 
+    # DB 접속 종료
+    cs.close()
+    dbConn.close()
+
+# 전체 데이터 불러오는 함수
+def update_data():
+    # DB 접속
+    dbConn=sqlite3.connect("data/mydata.db")
+    cs=dbConn.cursor()
+
     # 부동산 테이블 조회
     def db_list():
         cs.execute('SELECT * FROM budongsan2 ORDER BY 8 desc')
@@ -168,10 +179,5 @@ def run_update():
     # DB 접속 종료
     cs.close()
     dbConn.close()
-
-    st.session_state.df_bds = df_bds
-
-# 전체 데이터 불러오는 함수
-def update_data():
-    df_bds = st.session_state.df_bds
+    
     return df_bds

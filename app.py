@@ -16,9 +16,7 @@ st.title(':house_buildings:내 방, 어디:eyes:?')
 from search import run_search
 from predict import run_predict
 from suggestions import run_suggestions
-from update import run_update
 from update import update_data
-# from update import run_update
 
 
 selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '💬건의사항'], 
