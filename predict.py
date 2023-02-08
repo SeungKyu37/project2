@@ -21,6 +21,8 @@ import warnings
 warnings.filterwarnings("ignore")
 # from stqdm_model import stqdm_model
 from ml2 import prediction2
+from update import run_update
+from update import update_data
 
 def run_predict():
     
@@ -29,9 +31,9 @@ def run_predict():
     st.markdown("""
     *※ 왼쪽 사이드바에 원하시는 메뉴를 선택하세요 ※*
     """)
-    df = pd.read_csv('data/bds_data.csv', encoding='cp949')
+    df = update_data()
     df_copy = df.copy()
-    data = pd.read_csv('data/bds_data.csv', encoding='cp949')
+    data = update_data()
     sub_menu = ['전월세 월평균 그래프', '전월세 실거래수 지역 순위', '날짜별 거래', '전세예측']
     sub_choice = st.sidebar.selectbox("메뉴", sub_menu)
 

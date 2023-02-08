@@ -16,6 +16,9 @@ st.title(':house_buildings:내 방, 어디:eyes:?')
 from search import run_search
 from predict import run_predict
 from suggestions import run_suggestions
+from update import run_update
+from update import update_data
+# from update import run_update
 
 
 selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '💬건의사항'], 
@@ -31,28 +34,8 @@ selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 
 
 # 홈 탭
 if selected3 == "🏠Home":
-    # # db 접속
-    # dbConn=sqlite3.connect("data/mydata.db")
-    # cs=dbConn.cursor()
-
-    # # db에서 budongsan 테이블 조회(날짜 최신순)
-    # def bds_list():
-    #     cs.execute('SELECT * FROM budonsan ORDER BY 8 desc')
-    #     bds = cs.fetchall()
-    #     return bds
-
-    # # 데이터 프레임 만들기
-    # bds_list = bds_list()     
-    # data = pd.DataFrame(bds_list, columns=['SGG_CD','SGG_NM','BJDONG_CD','BJDONG_NM','BOBN','BUBN','FLR_NO','CNTRCT_DE','RENT_GBN','RENT_AREA','RENT_GTN','RENT_FEE','BLDG_NM','BUILD_YEAR','HOUSE_GBN_NM'])     
-    # data = data.drop(0, axis=0)
-    # data = data.astype({'RENT_AREA' : 'float'})
-    # data = data.astype({'FLR_NO' : 'float'})
-    # data = data.astype({'FLR_NO' : 'int'})
-
-    # # db 접속 종료
-    # cs.close()
-    # dbConn.close()
-    data = pd.read_csv('data/bds_data.csv', encoding='cp949')
+    data = update_data()
+    # data = pd.read_csv('data/bds_data.csv', encoding='cp949')
 
     data2 = data.copy()
 

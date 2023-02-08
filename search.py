@@ -4,14 +4,18 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import math
+from update import run_update
+from update import update_data
 
 def run_search():
     st.markdown("""
     ## 전월세 검색결과:mag:️
     *※ 왼쪽 사이드바에 있는 것을 조건에 맞게 선택하신 후 조회버튼을 눌러주세요※*
     # """)
-    st.write('기간 : 2022.01.01~ 2023.01.30 (계약일 기준)')
-    data = pd.read_csv('data/bds_data.csv', encoding='cp949')
+    data = update_data()
+    latest = data.loc[1,['CNTRCT_DE']].values[0]
+    st.write("기간 : 2022.01.30 ~ " +f'{latest}' + " (계약일 기준)")
+    
 
     gu = data['SGG_NM'].unique()
     
@@ -39,6 +43,7 @@ def run_search():
 
     st.sidebar.write("보증금(만단위)")
     rent_gtn_list = data['RENT_GTN'].values.tolist()
+    gtn_max = max(rent_gtn_list)
     col_gtn1, col_gtn2, col_gtn3 = st.sidebar.columns(3)
     with col_gtn1:
         min_gtn = int(st.text_input("최소", 
@@ -50,21 +55,21 @@ def run_search():
         pass
     with col_gtn3:
         max_gtn = int(st.text_input("최대", 
-                                    value=1100000, 
+                                    value=int(gtn_max), 
                                     key = 'numeric_gtn_max', 
                                     label_visibility="collapsed", 
                                     on_change = update_slider_gtn))
     if min_gtn > max_gtn:
         st.sidebar.error("최대가 최소보다 크거나 같게 설정하시오.")
-    try:
-        rent_gtn_select = st.sidebar.select_slider('보증금(만단위)', 
-                                                    options=np.arange(min(rent_gtn_list), max(rent_gtn_list)+1), 
+    # try:
+    rent_gtn_select = st.sidebar.select_slider('보증금(만단위)', 
+                                                    options=np.arange(int(min(rent_gtn_list)), int(max(rent_gtn_list))+1), 
                                                     value=(min_gtn, max_gtn),
                                                     key = ('slider_gtn_min', 'slider_gtn_max'), 
                                                     label_visibility="collapsed",
                                                     on_change = update_numin_gtn)
-    except:
-        st.sidebar.error("범위 안 숫자를 입력하시오.")
+    # except:
+        # st.sidebar.error("범위 안 숫자를 입력하시오.")
     
     # 월세 선택 슬라이더
     def update_slider_fee():
@@ -76,6 +81,7 @@ def run_search():
 
     st.sidebar.write("월세(만단위)")
     rent_fee_list = data['RENT_FEE'].values.tolist()
+    fee_max = max(rent_fee_list)
     col_fee1, col_fee2, col_fee3 = st.sidebar.columns(3)
     with col_fee1:
         min_fee = int(st.text_input("최소월세", 
@@ -87,7 +93,7 @@ def run_search():
         pass
     with col_fee3:
         max_fee = int(st.text_input("최대월세", 
-                                    value=4000, 
+                                    value=int(fee_max), 
                                     key = 'numeric_fee_max', 
                                     label_visibility="collapsed",
                                     on_change = update_slider_fee))
@@ -95,7 +101,7 @@ def run_search():
         st.sidebar.error("최대가 최소보다 크거나 같게 설정하시오.")
     try:
         rent_fee_select = st.sidebar.select_slider('월세(만단위)',
-                                                    options=np.arange(0, max(rent_fee_list)+1),
+                                                    options=np.arange(0, int(max(rent_fee_list))+1),
                                                     value=(min_fee, max_fee),
                                                     key = ('slider_fee_min', 'slider_fee_max'), 
                                                     label_visibility="collapsed",
@@ -113,6 +119,8 @@ def run_search():
     
     st.sidebar.write("임대면적(평)")
     rent_area_list = data['RENT_AREA'].values.tolist()
+    area_max = max(rent_area_list)
+    area_pyeng_max = math.ceil(area_max / 3.3058)
     col_area1, col_area2, col_area3 = st.sidebar.columns(3)
     with col_area1:
         min_area = int(st.text_input("최소 면적", 
@@ -124,7 +132,7 @@ def run_search():
         pass
     with col_area3:
         max_area = int(st.text_input("최대 면적",
-                                    value=97,
+                                    value=area_pyeng_max,
                                     key='numeric_area_max', 
                                     label_visibility="collapsed",
                                     on_change=update_slider_area))
