@@ -24,8 +24,6 @@ from ml2 import prediction2
 from update import update_data
 
 def run_predict():
-    
-
     st.title("전세 예측:상승세인_차트:")
     st.markdown("""
     *※ 왼쪽 사이드바에 원하시는 메뉴를 선택하세요 ※*
