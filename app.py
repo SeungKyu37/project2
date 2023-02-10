@@ -11,15 +11,18 @@ import sqlite3
 import datetime
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+import openai
 st.title(':house_buildings:내 방, 어디:eyes:?')
 
 from search import run_search
 from predict import run_predict
 from suggestions import run_suggestions
 from update import update_data
+from mean_db import gu_j_m_mean
+from chatbot import chatrun
 
 
-selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '💬건의사항'], 
+selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '챗봇', '💬건의사항'], 
     # icons=['house', 'cloud-upload', "list-task", 'gear'], 
     menu_icon="cast", default_index=0, orientation="horizontal",
     styles={
@@ -81,6 +84,9 @@ elif selected3 == "🔎전월세 검색":
 # 전세 시세 예측 탭 
 elif selected3 == "📊전세 예측":
     run_predict()
+
+elif selected3 == "챗봇":
+    chatrun()
     
 
 # 건의사항 탭
