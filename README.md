@@ -29,10 +29,10 @@
 + 버전 확인 
     - vscode : 1.74.1
     - python : 3.9.13
-    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2), google-cloud-bigquery(3.5.0), pandas-gbq(0.19.1), pydeck(0.8.0), yfinance(0.2.9), stqdm(0.0.5), prophet(1.1.2), seaborn(0.12.2)
+    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2), google-cloud-bigquery(3.5.0), pandas-gbq(0.19.1), pydeck(0.8.0), yfinance(0.2.9), stqdm(0.0.5), prophet(1.1.2), seaborn(0.12.2), openai(0.26.5), streamlit_chat(0.0.2.1)
 
 + 주요 라이브러리 설치
-    - `pip install numpy, pandas, plotly, matplotlib, streamlit, streamlit-option-menu, geopandas, google-cloud-bigquery, pandas-gbq, pydeck, yfinance, stqdm, prophet, seaborn`
+    - `pip install numpy, pandas, plotly, matplotlib, streamlit, streamlit-option-menu, geopandas, google-cloud-bigquery, pandas-gbq, pydeck, yfinance, stqdm, prophet, seaborn, openai, streamlit_chat`
 
 # 내방 어디? v2(2023.02.02~)
 
@@ -69,7 +69,17 @@
     - 월세, 전세 실거래 수 지역 순위 막대그래프 **시각화**
     - 날짜 선택 후 지역구별 평균 실거래가 지도 **시각화**
     - 지역구 선택 후 전세 예측 모델 **시각화**
+- 챗봇 
+    -
+    -
+    -
 - 업데이트
-    - 최신 부동산 데이터 업로드
-    - 메일 오전 10시 5분 데이터 갱신
+    - 최신 부동산 데이터 **업로드**
+    - 메일 오전 10시 5분 데이터 **갱신**
         - 배치 파일 사용
+- 평균 함수화
+    - 구별 전세 일 평균 **함수화**
+    - 구별 전세 월 평균 **함수화**
+    - 구별 월세 일 평균 **함수화**
+    - 구별 월세 월 평균 **함수화**
+    - 동별 전세 일 평균 **함수화**

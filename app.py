@@ -39,9 +39,6 @@ if selected3 == "🏠Home":
     # data = pd.read_csv('data/bds_data.csv', encoding='cp949')
 
     data2 = data.copy()
-    # data = pd.DataFrame(data)
-    mean = dong_j_d_mean(data)
-    st.write(mean)
 
     # now = datetime.now()
     # before_day = now - relativedelta(days=1)
