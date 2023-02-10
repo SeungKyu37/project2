@@ -22,16 +22,25 @@ from mean_db import dong_j_d_mean
 from chatbot import chatrun
 
 
-selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '챗봇', '💬건의사항'], 
-    # icons=['house', 'cloud-upload', "list-task", 'gear'], 
+selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '💬챗봇', '👂건의사항'], 
+    icons = ['🏠', '🔎', '📊', '💬','👂️'],
     default_index=0, orientation="horizontal",
     styles={
-        "container": {"padding": "0!important", "background-color": "#fafafa"},
-        "icon": {"color": "gray", "font-size": "15px"}, 
+        "container": {"padding": "0!important", "background-color": "#fafafa"}, 
         "nav-link": {"font-size": "15px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
         "nav-link-selected": {"background-color": "#47C83E"},
     }
 )
+
+# selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '💬챗봇', '건의사항'],  
+#     menu_icon="cast", default_index=0, orientation="horizontal",
+#     styles={
+#         "container": {"padding": "0!important", "background-color": "#fafafa"},
+#         "icon": {"color": "orange", "font-size": "25px"}, 
+#         "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+#         "nav-link-selected": {"background-color": "green"},
+#     }
+# )
 
 # 홈 탭
 if selected3 == "🏠Home":
@@ -85,12 +94,12 @@ elif selected3 == "🔎전월세 검색":
 elif selected3 == "📊전세 예측":
     run_predict()
 
-elif selected3 == "챗봇":
+elif selected3 == "💬챗봇":
     chatrun()
     
 
 # 건의사항 탭
-elif selected3 == "💬건의사항":
+elif selected3 == "👂건의사항":
     run_suggestions()
 else:
     selected3 == "🏠Home"
