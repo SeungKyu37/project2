@@ -208,6 +208,7 @@ def run_predict():
         nRe = ((n3-n2)*(n1/100))/12
         if nRe <= 0:
             nRe = 0
+        nRe = float(nRe)
         # n4 = st.number_input("월세 (만원)", step=0.1, value=float(nRe))
         st.write('월세(만원)')
         st.success(str(f'{nRe:.2f}') + '만원')
@@ -232,7 +233,8 @@ def run_predict():
             uRe = 0
         else:
             uRe = ((u3*12)/(u1/100)) + u2
-
+        
+        uRe = float(uRe)
         # u4 = st.number_input("전세 보증금 (만원) ", step=0.1, value=float(uRe))
         st.write('전세 보증금 (만원)')
         st.success(str(f'{uRe:.2f}') + '만원')
@@ -265,11 +267,22 @@ def run_predict():
                 eRe2 = 0
         elif e == '원금균등상환':
             eRe1 = e1*(e2/100)*((e3+1)/24)
-            eRe2 = eRe1/e3
-        else:
-            eRe1 = e1*(e2/1200)*e3
-            eRe2 = eRe1/e3
+            
+            if e3 == 0:
+                eRe2 = 0
+            else:
+                eRe2 = eRe1/e3
+        elif e == '원금만기일시상환':
+            if e3 == 0:
+                eRe1 = 0
+                eRe2 = 0
+            else:
+                eRe1 = e1*(e2/1200)*e3
+                eRe2 = eRe1/e3
+        
         eRe1 = float(eRe1)
+        eRe2 = float(eRe2)
+
         if e == '원리금균등상환':
             # e5 = st.number_input('매월 상환금 (원금 + 이자) (원)', step=0.1, value=float(eRe1))
             st.write('매월 상환금 (원금 + 이자)')
@@ -281,11 +294,11 @@ def run_predict():
             with pe1:
                 # e5 = st.number_input('총 이자 금액', step=0.1, value=float(eRe1))
                 # st.write('총 이자 금액')
-                st.success('총 이자 금액　　　　　　　　　' + str(f'{eRe1:.0f}') + '원')
+                st.success('총 이자 금액　　　　　' + str(f'{eRe1:.0f}') + '원')
             with pe2:
                 # e6 = st.number_input('월별 이자 금액', step=0.1, value=float(eRe2))
                 # st.write('월별 이자 금액')
-                st.success('월별 이자 금액　　　　　　　　　' + str(f'{eRe2:.0f}') + '원')
+                st.success('월별 이자 금액　　　　　' + str(f'{eRe2:.0f}') + '원')
             p7 = st.empty()
             p8 = st.empty()
             p9 = st.empty()
@@ -303,10 +316,11 @@ def run_predict():
         with p13.container():
             m3 = st.number_input("월세 (만원)  ", step=0.1)
         
-        if (m1-m2) == 0:
+        if (m1-m2) <= 0:
             mRe = 0
         else:
             mRe = ((m3*12)/(m1-m2))*100
+        mRe = float(mRe)
         # m4 = st.number_input("전월세 전환율 (%)  ", step=0.1, value=float(mRe))
         st.write('전월세 전환율 (%)')
         st.success(str(f'{mRe:.2f}') + '%')
