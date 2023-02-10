@@ -18,7 +18,7 @@ from search import run_search
 from predict import run_predict
 from suggestions import run_suggestions
 from update import update_data
-from mean_db import gu_j_m_mean
+from mean_db import dong_j_d_mean
 from chatbot import chatrun
 
 
@@ -39,6 +39,9 @@ if selected3 == "🏠Home":
     # data = pd.read_csv('data/bds_data.csv', encoding='cp949')
 
     data2 = data.copy()
+    # data = pd.DataFrame(data)
+    mean = dong_j_d_mean(data)
+    st.write(mean)
 
     # now = datetime.now()
     # before_day = now - relativedelta(days=1)
