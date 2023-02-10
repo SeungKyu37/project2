@@ -32,28 +32,10 @@ selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 
     }
 )
 
-# selected3 = option_menu(None, ["🏠Home", "🔎전월세 검색",  "📊전세 예측", '💬챗봇', '건의사항'],  
-#     menu_icon="cast", default_index=0, orientation="horizontal",
-#     styles={
-#         "container": {"padding": "0!important", "background-color": "#fafafa"},
-#         "icon": {"color": "orange", "font-size": "25px"}, 
-#         "nav-link": {"font-size": "25px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-#         "nav-link-selected": {"background-color": "green"},
-#     }
-# )
-
 # 홈 탭
 if selected3 == "🏠Home":
     data = update_data()
-    # data = pd.read_csv('data/bds_data.csv', encoding='cp949')
-
     data2 = data.copy()
-
-    # now = datetime.now()
-    # before_day = now - relativedelta(days=1)
-    # before_month = before_day - relativedelta(months=1)
-    # before_day = before_day.strftime("%Y-%m-%d")
-    # before_month = before_month.strftime("%Y-%m-%d")
 
     # 실거래 현황
     st.markdown("""
