@@ -235,3 +235,7 @@ def update_data():
     dbConn.close()
     
     return df_bds
+
+if __name__=="__main__":
+    run_update()
+    update_data()
