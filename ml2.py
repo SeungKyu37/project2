@@ -46,12 +46,13 @@ def prediction2():
         m = Prophet()
         m.fit(df_train)
 
-        future = m.make_future_dataframe(periods=30)
+        future = m.make_future_dataframe(periods=31)
         forecast = m.predict(future)
 
         dates = forecast['ds']
         y_truedates = dates[:len(dates)-30, ]
         y_predates = dates[len(dates)-30:, ]
+        
         if check:
             st.subheader(f'{s} ''실거래가 예측 수치')
             st.write(forecast.loc[forecast['ds'] > date, ['ds','yhat']])
