@@ -36,8 +36,30 @@
     - python : 3.9.13
     - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2), google-cloud-bigquery (3.5.0), pandas-gbq (0.19.1), pydeck (0.8.0), yfinance (0.2.9), stqdm (0.0.5), prophet (1.1.2), seaborn (0.12.2), openai (0.26.5), streamlit_chat (0.0.2.1)
 
-+ 주요 라이브러리 설치
-    - `pip install numpy, pandas, plotly, matplotlib, streamlit, streamlit-option-menu, geopandas, google-cloud-bigquery, pandas-gbq, pydeck, yfinance, stqdm, prophet, seaborn, openai, streamlit_chat`
+- 먼저 프로젝트 파일을 다운로드 받습니다. 
+
+```bash
+git clone https://github.com/SeungKyu37/project2.git
+```
+
+- 프로젝트 경로에서 가상환경 설치 후 접속합니다. (Windows 10 기준)
+```bash
+virtualenv venv
+source venv/Scripts/activate
+```
+
+- 라이브러리를 설치합니다. 
+```bash
+pip install -r requirements.txt
+```
+
+- streamlit 명령어를 실행합니다. 
+```bash
+streamlit run app.py
+```
+
+- 그 외의 추가적인 설정 방법
+    - 블로그명 : 
 
 # 내방 어디? v2(2023.02.02~)
 
