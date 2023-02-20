@@ -10,6 +10,14 @@
 
 [서울시 부동산 전월세가 정보](https://data.seoul.go.kr/dataList/OA-21276/S/1/datasetView.do)
 
+## 팀 구성
+- 사용언어 : Python : 3.9v
+- 작업툴 : VS code
+- 인원 : 4명
+- 주요 업무 : Streamlit 라이브러리를 이용한 웹개발 구현 코드 작성
+- 기간 : 2023-01-30 - 2023-02-10
+***
+
 ## 주요 기능
 - 홈페이지
     - 실거래 현황(최근 한달순)
@@ -31,12 +39,12 @@
 
 ## 설치 방법
 ### Windows
-+ 버전 확인 
++ 버전 확인
     - vscode : 1.74.1
     - python : 3.9.13
     - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2), google-cloud-bigquery (3.5.0), pandas-gbq (0.19.1), pydeck (0.8.0), yfinance (0.2.9), stqdm (0.0.5), prophet (1.1.2), seaborn (0.12.2), openai (0.26.5), streamlit_chat (0.0.2.1)
 
-- 먼저 프로젝트 파일을 다운로드 받습니다. 
+- 프로젝트 파일을 다운로드 받습니다. 
 
 ```bash
 git clone https://github.com/SeungKyu37/project2.git
