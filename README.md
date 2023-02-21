@@ -11,7 +11,7 @@
 [서울시 부동산 전월세가 정보](https://data.seoul.go.kr/dataList/OA-21276/S/1/datasetView.do)
 
 ## 팀 구성
-- 사용언어 : Python : 3.9v
+- 사용언어 : Python : 3.9.13v
 - 작업툴 : VS code
 - 인원 : 4명
 - 주요 업무 : Streamlit 라이브러리를 이용한 웹개발 구현 코드 작성
