@@ -52,13 +52,14 @@ def chatrun():
             message = completions.choices[0].text
             return message
     st.title("챗봇 물어봐!!")
+    st.write("부동산 검색예시 - 부동산 xx구 20220101")
     # Storing the chat
     if 'generated' not in st.session_state:
         st.session_state['generated'] = []
     if 'past' not in st.session_state:
         st.session_state['past'] = []
     def get_text():
-        input_text = st.text_input("You : ","부동산 검색예시 - 부동산 xx구 20220101", key="input")
+        input_text = st.text_input("You : ","Hello, how are you?", key="input")
         return input_text
     user_input = get_text()
     if user_input:
