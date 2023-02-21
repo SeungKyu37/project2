@@ -46,7 +46,15 @@ def prediction2():
         m = Prophet()
         m.fit(df_train)
 
-        future = m.make_future_dataframe(periods=31)
+        
+        format = '%Y-%m-%d'
+        date_max = datetime.strptime(date, format)
+        today = datetime.today()
+        date_diff = today - date_max
+        x = date_diff.days
+
+
+        future = m.make_future_dataframe(periods=30+x)
         forecast = m.predict(future)
 
         dates = forecast['ds']
