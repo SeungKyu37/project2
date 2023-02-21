@@ -42,7 +42,7 @@
 + 버전 확인
     - vscode : 1.74.1
     - python : 3.9.13
-    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2), google-cloud-bigquery (3.5.0), pandas-gbq (0.19.1), pydeck (0.8.0), yfinance (0.2.9), stqdm (0.0.5), prophet (1.1.2), seaborn (0.12.2), openai (0.26.5), streamlit_chat (0.0.2.1)
+    - 라이브러리 :  pandas (1.5.3), numpy (1.24.1), plotly (5.13.0), matplotlib (3.6.3), streamlit (1.17.0), streamlit-option-menu (0.3.2), geopandas (0.12.2), pandas-gbq (0.19.1), pydeck (0.8.0), yfinance (0.2.9), stqdm (0.0.5), prophet (1.1.2), seaborn (0.12.2), openai (0.26.5), streamlit_chat (0.0.2.1)
 
 - 프로젝트 파일을 다운로드 받습니다. 
 
