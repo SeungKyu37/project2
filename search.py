@@ -1,12 +1,21 @@
 # 전월세 검색 탭
 
+# 라이브러리
 import streamlit as st
 import pandas as pd
 import numpy as np
 import math
+
+# 다른 함수 import
 from update import update_data
 
 def run_search():
+    """ 홈페이지에서 전/월세검색을 표시하는 함수입니다.
+    
+    Parameters:
+    Returns: 최종적으로 조건에 맞게 선택된 데이터를 리턴합니다.
+
+    """
     st.markdown("""
     ## 전월세 검색결과:mag:️
     *※ 왼쪽 사이드바에 있는 것을 조건에 맞게 선택하신 후 조회버튼을 눌러주세요※*
