@@ -25,10 +25,6 @@ import plotly.graph_objects as go
 from mean_db import ml_data
 from lstm_model import dl_model
 
-
-# 한글 변환
-mat.rcParams['font.family']='Gulim'
-
 def prediction2(data):
     st.header('전세 실거래가 예측')
 
