@@ -78,7 +78,7 @@ def prediction2(data):
                             )
             ax.legend()
             ax.grid(True, which='major', c='gray', ls='-', lw=1, alpha=0.2)
-            ax.set_title('Prophet 모델')
+            ax.set_title('Prophet Graph')
             st.pyplot(fig)
    
     with tab2:
