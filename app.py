@@ -74,7 +74,8 @@ elif selected3 == "🔎전월세 검색":
 
 # 전세 시세 예측 탭 
 elif selected3 == "📊전세 예측":
-    run_predict()
+    data = update_data()
+    run_predict(data)
 
 elif selected3 == "💬챗봇":
     chatrun()
