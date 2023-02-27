@@ -136,7 +136,7 @@ def run_update():
     service_key = '4d42486779706d3034365957634870'
     data = []
 
-    for j in range(1,10):
+    for j in range(1,3):
         url = f'http://openapi.seoul.go.kr:8088/{service_key}/json/tbLnOpendataRentV/{1+((j-1)*1000)}/{j*1000}'
         print(url)
         req = requests.get(url)
