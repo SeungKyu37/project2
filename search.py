@@ -22,7 +22,7 @@ def run_search():
     # """)
     data = update_data()
     latest = data.loc[1,['CNTRCT_DE']].values[0]
-    st.write("기간 : 2022.01.01 ~ " +f'{latest}' + " (계약일 기준)")
+    st.write("기간 : 2022-01-01 ~ " +f'{latest}' + " (계약일 기준)")
     
 
     gu = data['SGG_NM'].unique()

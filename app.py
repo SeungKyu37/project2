@@ -47,7 +47,7 @@ if selected3 == "🏠Home":
     # st.write("기간 : " + f'{before_month}' + " ~ " +f'{before_day}' + " (계약일 기준)")
     st.write("매일 오후 10시 데이터 갱신")
     latest = data.loc[1,['CNTRCT_DE']].values[0]
-    st.write("기간 : 2022.01.01 ~ " +f'{latest}' + " (계약일 기준)")
+    st.write("기간 : 2022-01-01 ~ " +f'{latest}' + " (계약일 기준)")
     # data = data[data['CNTRCT_DE']>=f'{before_month}']
 
     data['FLR_NO'] = data['FLR_NO'].astype(str) + '층'
