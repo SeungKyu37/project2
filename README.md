@@ -1,7 +1,5 @@
 # 내 방 어디? v1(~2023.02.01)
-[내 방 어디? 링크](https://myroomwhere.streamlit.app/)
-[발표 영상](https://www.youtube.com/watch?v=RbN39pUA1Ww)
-[데모 시연](https://www.youtube.com/watch?v=j3rdthS7PM8)
+[내 방 어디? 링크](https://myroomwhere.streamlit.app/)  [발표 영상](https://www.youtube.com/watch?v=RbN39pUA1Ww)  [데모 시연](https://www.youtube.com/watch?v=j3rdthS7PM8)
 ![screensh](img/홈페이지.png)
 
 ## 목적
@@ -67,9 +65,6 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
-
-- 그 외의 추가적인 설정 방법
-    - 블로그명 : 
 
 # 내방 어디? v2(2023.02.02~)
 
