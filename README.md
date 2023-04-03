@@ -1,5 +1,7 @@
 # 내 방 어디? v1(~2023.02.01)
-[내 방 어디? 링크](https://myroomwhere.streamlit.app/)  [발표 영상](https://www.youtube.com/watch?v=RbN39pUA1Ww)  [데모 시연](https://www.youtube.com/watch?v=j3rdthS7PM8)
+[내 방 어디? 링크](https://myroomwhere.streamlit.app/) <br/>
+[발표 영상](https://www.youtube.com/watch?v=RbN39pUA1Ww) <br/>
+[데모 시연](https://www.youtube.com/watch?v=j3rdthS7PM8) <br/>
 ![screensh](img/홈페이지.png)
 
 ## 목적
