@@ -1,7 +1,7 @@
 # 내 방 어디? v1(~2023.02.01)
-[내 방 어디? 링크](https://myroomwhere.streamlit.app/) <br/>
-[발표 영상](https://www.youtube.com/watch?v=RbN39pUA1Ww) <br/>
-[데모 시연](https://www.youtube.com/watch?v=j3rdthS7PM8) <br/>
+[내 방 어디? 링크](https://myroomwhere.streamlit.app/) <br/><br/>
+[발표 영상](https://www.youtube.com/watch?v=RbN39pUA1Ww) <br/><br/>
+[데모 시연](https://www.youtube.com/watch?v=j3rdthS7PM8) <br/><br/>
 ![screensh](img/홈페이지.png)
 
 ## 목적
@@ -11,6 +11,9 @@
 서울 열린데이터 광장 - 서울시 부동산 전월세가 정보 공공 데이터를 이용하였습니다.
 
 [서울시 부동산 전월세가 정보](https://data.seoul.go.kr/dataList/OA-21276/S/1/datasetView.do)
+
+## ERD
+![screensh](img/erd.png)
 
 ## 팀 구성
 - 사용언어 : Python : 3.9.13v
