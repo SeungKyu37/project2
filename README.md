@@ -2,6 +2,7 @@
 [내 방 어디? 링크](https://myroomwhere.streamlit.app/) <br/><br/>
 [발표 영상](https://www.youtube.com/watch?v=RbN39pUA1Ww) <br/><br/>
 [데모 시연](https://www.youtube.com/watch?v=j3rdthS7PM8) <br/><br/>
+[포트폴리오](https://github.com/SeungKyu37/project2/blob/main/pdf/%EB%B6%80%EB%8F%99%EC%82%B0_%EB%A7%A4%EB%AC%BC%EC%A0%95%EB%B3%B4_%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8.pdf)<br/><br/>
 ![screensh](img/홈페이지.png)
 
 ## 목적
