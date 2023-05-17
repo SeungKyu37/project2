@@ -10,7 +10,7 @@ from sklearn.preprocessing import MinMaxScaler
 import warnings
 warnings.filterwarnings("ignore")
 import matplotlib.font_manager as fonm
-import prophet
+# import prophet
 # import yfinance as yf
 # from prophet import Prophet
 import matplotlib.dates as mdates
