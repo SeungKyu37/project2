@@ -106,4 +106,5 @@ def dl_model(data, SGG_NM):
     df_future['RENT_GTN'] = np.nan
 
     results = df_past.append(df_future).set_index('Date')
+
     return [results, df_future]
