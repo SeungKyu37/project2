@@ -12,7 +12,7 @@ pandas-gbq
 pydeck
 yfinance
 stqdm
-prophet==1.1.2
+prophet
 seaborn
 openai
 streamlit_chat
