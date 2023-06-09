@@ -3,7 +3,7 @@ pandas
 matplotlib
 streamlit
 plotly
-tensorflow
+tensorflow==2.9.0
 streamlit_option_menu
 geopandas==0.12.2
 holidays==0.24
