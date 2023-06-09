@@ -31,7 +31,7 @@ def gu_w_m_mean(df_bds):
     df_bds['RENT_FEE'] = df_bds['RENT_FEE'].astype(int)
     df = df_bds.drop(df_bds[df_bds['RENT_GBN']=='전세'].index, axis=0)
     df['YM'] = df['CNTRCT_DE'].str.slice(start=0,stop=7)
-    df2 = df.groupby(['SGG_NM', 'YM'])['RENT_GTN', 'RENT_FEE'].mean().reset_index()
+    df2 = df.groupby(['SGG_NM', 'YM'])[['RENT_GTN', 'RENT_FEE']].mean().reset_index()
     return df2
 
 # 동별 전세 일 평균
